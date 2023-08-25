@@ -1,7 +1,15 @@
 #! /bin/bash -ex
-rpm --import https://yum.corretto.aws/corretto.key
-curl -L -o /etc/yum.repos.d/corretto.repo https://yum.corretto.aws/corretto.repo
-yum install -y java-21-amazon-corretto-devel
+# A script to install and setup Structurizr Site Generator on Vercel build image. See https://vercel.com/docs/deployments/build-image
+# Also see https://github.com/tom-sherman/vercel-structurizr-site-generatr-demo
+cat <<EOF > /etc/yum.repos.d/adoptium.repo
+[Adoptium]
+name=Adoptium
+baseurl=https://packages.adoptium.net/artifactory/rpm/amazonlinux/2/$(uname -m)
+enabled=1
+gpgcheck=1
+gpgkey=https://packages.adoptium.net/artifactory/api/gpg/key/public
+EOF
+yum install -y temurin-19-jdk
 java -version
 
 curl -L https://github.com/avisi-cloud/structurizr-site-generatr/releases/download/1.1.4/structurizr-site-generatr-1.1.4.tar.gz -o structurizr-site-generatr-1.1.4.tar.gz
