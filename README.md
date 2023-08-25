@@ -26,4 +26,4 @@ Install command:
 
 ### Customising the `structurizr-site-generatr` version
 
-This demo uses v1.1.14 of `structurizr-site-generatr` by default. To use a different version, update the `vercel-install.sh` script to use the desired version.
+This demo uses v1.1.14 of `structurizr-site-generatr` by default. To use a different version, update the `vercel-install.sh` script to download, extract, and link the desired version from the [releases page](https://github.com/avisi-cloud/structurizr-site-generatr/releases).
